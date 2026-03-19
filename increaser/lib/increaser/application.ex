@@ -10,15 +10,15 @@ defmodule Increaser.Application do
     children = [
       # Starts a worker by calling: Increaser.Worker.start_link(arg)
       {Increaser.Worker, :cats},
+      {Increaser.Worker, :chickens},
       {Increaser.Worker, :cows},
       {Increaser.Worker, :dogs},
-      {Increaser.Worker, :pigs},
-      {Increaser.Worker, :chickens}
+      {Increaser.Worker, :pigs}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Increaser.Supervisor]
+    opts = [strategy: :rest_for_one, name: Increaser.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end
