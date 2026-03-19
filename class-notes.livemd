@@ -25,16 +25,16 @@ Topics (ADD)
   * [x] Endpoints
   * [x] Application
   * [ ] LiueView
+  * [ ] Open Telemetry
+    * [ ] Usage Rules
   * [ ] GraphQL
     ```
     - [ ] Batch
     ```
-  * [ ] Open Telemetry
 * LLM
   * [x] throw it away
   * [x] Red/Green indicators
   * [ ] Skills
-  * [x] Usage Rules
   * [x] Tidewave
 
 <!-- livebook:{"break_markdown":true} -->
@@ -199,4 +199,17 @@ if x == 4, do: :something, else: :something_else
 
 ```elixir
 exports(Kernel)
+```
+
+## for comprehensions
+
+generators, filters, mapper (inside do), into for different types, and more
+
+```elixir
+for x <- ?a..?z, y <- ~w[one two three], x < ?f, x > ?c, into: MapSet.new(), do: {x, y}
+
+```
+
+```elixir
+h for
 ```
