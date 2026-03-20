@@ -13,7 +13,7 @@ Topics (ADD)
   * [x] mutability
   * [x] keyword list
   * [x] sigils
-  * [ ] for comprehension
+  * [x] for comprehension
   * [x] strings/charlists
   * [x] protocols
 * OTP and Behavior
@@ -23,14 +23,12 @@ Topics (ADD)
     * [x] Behaviours
 * Phoenix Lifecycle
   * [x] Endpoints
-  * [x] Application
-  * [ ] LiueView
+  * [x] application.ex
+  * [x] LiveView
   * [ ] Open Telemetry
-    * [ ] Usage Rules
+  * [x] Usage Rules
   * [ ] GraphQL
-    ```
-    - [ ] Batch
-    ```
+    * [ ] Batch
 * LLM
   * [x] throw it away
   * [x] Red/Green indicators
@@ -49,8 +47,6 @@ charlists are a blind spot because Ruby uses both " and ' for strings, but in El
 <<99, 97, ?t>>
 
 ```
-
-
 
 ```elixir
 [99, 97, 116]
@@ -212,4 +208,128 @@ for x <- ?a..?z, y <- ~w[one two three], x < ?f, x > ?c, into: MapSet.new(), do:
 
 ```elixir
 h for
+```
+
+## Pattern Matching
+
+```elixir
+x = 2
+x = 3
+
+```
+
+```elixir
+place = {:vancouver, :ca}
+```
+
+```elixir
+{city, country} = place
+```
+
+```elixir
+map = %{name: "jeff", age: 33, job: :being_awesome}
+```
+
+```elixir
+%{} = map
+```
+
+```elixir
+%{name: name} = map
+```
+
+```elixir
+name
+```
+
+```elixir
+%{name: name} = map
+```
+
+```elixir
+provence = "ontario"
+```
+
+```elixir
+"on" <> rest = provence
+```
+
+```elixir
+rest
+```
+
+```elixir
+list = [:orange, :apple, :pear]
+```
+
+```elixir
+[head | tail] = list
+```
+
+```elixir
+tail
+```
+
+```elixir
+defmodule MyEnum do
+  def count([]), do: 0
+  def count([_head | rest]), do: 1 + count(rest)
+end
+```
+
+```elixir
+MyEnum.count(list)
+```
+
+```elixir
+[:banana | tail]
+```
+
+```elixir
+[:guava | tail]
+```
+
+```elixir
+list |> Enum.map(&to_string/1) |> Enum.join("") |> IO.puts()
+```
+
+```elixir
+list |> Enum.map(&to_string/1) |> IO.puts()
+```
+
+```elixir
+for f <- list, into: %{}, do: {f, 0}
+```
+
+```elixir
+list2 = list
+```
+
+```elixir
+list3 = [:orange, :apple, :mango]
+```
+
+```elixir
+^list3 = list
+```
+
+```elixir
+value = "hello"
+sentence = [value]
+```
+
+```elixir
+value = [value, " Who's there? "]
+```
+
+```elixir
+value = ["Hi " | value]
+```
+
+```elixir
+[value, " Kyle"]
+```
+
+```elixir
+IO.puts sentence
 ```
